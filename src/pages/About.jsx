@@ -1,10 +1,17 @@
 import { BiDumbbell } from "react-icons/bi";
 import WebDeveloper from "../assets/images/about/about.png";
 import SkillsBox from "../components/SkillsBox";
+import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="mx-8 min-h-full lg:mx-24 ">
+    <motion.div key="about"
+      initial={{ scaleX: 0 }}
+      animate={{ scaleX: 1 }}
+      exit={{ scaleX: 0 }}
+      transition={{ duration: 0.5 }}
+      className="about mx-8 min-h-full lg:mx-24"
+    >
       <h2 className="text-2xl md:text-4xl text-gray-800 dark:text-gray-100 mb-8">
         About <span className="text-indigo-500">Me</span>
       </h2>
@@ -38,7 +45,8 @@ const About = () => {
         </div>
       </div>
       <SkillsBox />
-    </div>
+    </motion.div>
+
   );
 };
 

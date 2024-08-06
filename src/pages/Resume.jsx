@@ -3,6 +3,7 @@ import { AiOutlineDownload } from 'react-icons/ai';
 import { Document, Page, pdfjs } from 'react-pdf';
 import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
 import pdf from '../assets/images/resume/Abhishek_resume.pdf';
+import { motion } from 'framer-motion';
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.min.js`;
 
 function Resume() {
@@ -13,7 +14,12 @@ function Resume() {
     }, []);
 
     return (
-        <div className="flex flex-col items-center">
+        <motion.div className="resume flex flex-col items-center" key="resume"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            exit={{ scaleX: 0 }}
+            transition={{ duration: 0.5 }}
+        >
             <div className="my-4">
                 <a
                     href={pdf}
@@ -48,7 +54,7 @@ function Resume() {
                     Download Resume
                 </a>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
